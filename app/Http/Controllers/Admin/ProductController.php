@@ -46,7 +46,6 @@ class ProductController extends Controller
     }
 
     public function destroy(Product $product) {
-        dd($product);
         if ($product->delete()) {
             Storage::delete(Str::replace('storage', 'public', $product['imgProduct']));
             return redirect()->back()->with('success','Xóa thành công');
